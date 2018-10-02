@@ -9,18 +9,18 @@ import java.util.Collection;
 
 public class ClockController {
     private Clock clock;
-    private ArrayList<TextView> clockViews;
+    private ArrayList<ClockView> clockViews;
 
     public ClockController() {
-        clockViews = new ArrayList<TextView>();
+        clockViews = new ArrayList<ClockView>();
     }
 
     public void registerClock(Clock clock) {
         this.clock = clock;
     }
 
-    public void registerClockView(TextView tx) {
-        clockViews.add(tx);
+    public void registerClockView(ClockView clockView) {
+        clockViews.add(clockView);
     }
 
     public DateTime getClockTime() {
@@ -32,8 +32,8 @@ public class ClockController {
     }
 
     public void updateClockViews() {
-        for (TextView textView : clockViews) {
-            textView.setText("Time: " + clock.getTime().toString());
+        for (ClockView clockView : clockViews) {
+            clockView.setDateTime(clock.getTime());
         }
     }
 }
