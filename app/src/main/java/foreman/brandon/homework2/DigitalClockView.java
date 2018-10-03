@@ -3,7 +3,6 @@ package foreman.brandon.homework2;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class DigitalClockView extends ClockView {
@@ -22,8 +21,8 @@ public class DigitalClockView extends ClockView {
     }
 
     public void init(Context context) {
-        rootView = inflate(context, R.layout.digital_clock, this);
-        clockTextView = (TextView)rootView.findViewById(R.id.timeText1);
+        rootView = inflate(context, R.layout.digitalclock_view, this);
+        clockTextView = (TextView)rootView.findViewById(R.id.timeText);
     }
 
     public void setDateTime(DateTime dateTime) {

@@ -4,7 +4,13 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Menu_Activity extends AppCompatActivity {
 
@@ -17,22 +23,31 @@ public class Menu_Activity extends AppCompatActivity {
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
     private DigitalClockView dc;
+    private DateTime time;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.clock);
+        setContentView(R.layout.menu_activity);
 
         clockController = new ClockController();
 
-        DateTime time = new DateTime(30, 59, 8, "Monday", 2, "January", 1997);
+        time = new DateTime(30, 59, 8, "Monday", 2, "January", 1997);
         clock = new Clock(clockController, time);
-        DigitalClockView dc = findViewById(R.id.digitalClock);
 
         // get current activity context through "Menu_Activity.this"
         clockController.registerClock(clock);
-        clockController.registerClockView(dc);
 
+        ArrayList<Integer> st = new ArrayList<Integer>();
+        st.add(1);
+        // setup our adapter for list view, to take in clock views
+        ClockAdapter adapter = new ClockAdapter(this, R.layout.menu_activity, st, time);
+//        adapter.setDateTime(time);
+        ListView listView = (ListView) findViewById(R.id.listedClocks_listView);
+        listView.setAdapter(adapter);
+
+        clockController.registerClockViewListAdapter(adapter);
+//        clockController.addClockView(1);
 
         // runnable declaration in order to allow the clock UI to be updated every second and tick the clock
         /*
@@ -42,7 +57,7 @@ public class Menu_Activity extends AppCompatActivity {
         r = new Runnable() {
             @Override
             public void run() {
-                DateTime time = clockController.getClockTime();
+//                DateTime time = clockController.getClockTime();
                 int seconds = time.getSecond() + 1;
                 int minutes = time.getMinute();
                 minutes = (seconds/60 == 1 && seconds != 0) ? minutes+1: minutes;
@@ -51,7 +66,9 @@ public class Menu_Activity extends AppCompatActivity {
                 time.setSecond(seconds%60);
                 time.setMinute(minutes%60);
                 time.setHour(hour%24);
+                Log.d("TIME", time.toString());
                 clockController.setClockTime(time);
+
                 // create a handler for this runnable task
                 handler.postDelayed(r, 1000);
             }
