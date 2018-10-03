@@ -24,7 +24,10 @@ public class ClockAdapter extends ArrayAdapter<Integer> {
     }
 
     public ClockAdapter(Context context, int resource, ArrayList<Integer> values, DateTime dateTime) {
+        // Note to future Brandon, do not touch this constructor. The values arraylist is both the super class arraylist and child class's array list. There is no public getter for the values
+        // in superclass. So we must assign the values here also in the child class. If you don't assign in both places, view doesn't display anything.
         super(context, resource, values);
+        this.values = values;
         this.dateTime = dateTime;
     }
 
@@ -36,11 +39,18 @@ public class ClockAdapter extends ArrayAdapter<Integer> {
     public View getView(int position, View convertView, ViewGroup parent) {
         // We need to use an inflater to inflate each of our views in our list. Inflating is similar to rendering. The view is inflated from XML to the screen and able to be viewed.
         LayoutInflater layoutInflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View clockViewRow = null;
         // digital clock
+        if(values.get(position) == 1) {
             // inflate the view
-            View clockViewRow = layoutInflater.inflate(R.layout.digitalclock_row, parent, false);
+            clockViewRow = layoutInflater.inflate(R.layout.digitalclock_row, parent, false);
             ClockView clockView = (ClockView) clockViewRow.findViewById(R.id.digitalClock_view);
             clockView.setDateTime(dateTime);
+        }
+        // analog clock
+        else {
+
+        }
         return clockViewRow;
     }
 

@@ -19,7 +19,7 @@ public class ClockController {
         this.clock = clock;
     }
 
-    public void addClockView(int clockType) {
+    public void addClockView(Integer clockType) {
         // digital clock
         // Note to self, use enums here instead of hard coded value
         if(clockType == 1) {

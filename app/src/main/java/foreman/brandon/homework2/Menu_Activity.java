@@ -16,14 +16,8 @@ public class Menu_Activity extends AppCompatActivity {
 
     private Clock clock;
     private ClockController clockController;
-    private TextView timeView;
     private Runnable r;
     private Handler handler;
-    private RecyclerView recyclerView;
-    private RecyclerView.Adapter adapter;
-    private RecyclerView.LayoutManager layoutManager;
-    private DigitalClockView dc;
-    private DateTime time;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +26,7 @@ public class Menu_Activity extends AppCompatActivity {
 
         clockController = new ClockController();
 
-        time = new DateTime(30, 59, 8, "Monday", 2, "January", 1997);
+        DateTime time = new DateTime(30, 59, 8, "Monday", 2, "January", 1997);
         clock = new Clock(clockController, time);
 
         // get current activity context through "Menu_Activity.this"
@@ -47,7 +41,14 @@ public class Menu_Activity extends AppCompatActivity {
         listView.setAdapter(adapter);
 
         clockController.registerClockViewListAdapter(adapter);
-//        clockController.addClockView(1);
+        clockController.addClockView(1);
+
+        // TODO: Add in Command design pattern for changing the time at which the clocks are set to
+        // TODO: Make AnalogClockView
+        // TODO: Use Calendar when setting DateTime for clock model
+        // TODO: Remove unneeded controller passins
+        // TODO: Ask about whether Command design pattern views should be in Clock Controller or can exist on the Menu_Activity layer
+
 
         // runnable declaration in order to allow the clock UI to be updated every second and tick the clock
         /*
@@ -57,7 +58,7 @@ public class Menu_Activity extends AppCompatActivity {
         r = new Runnable() {
             @Override
             public void run() {
-//                DateTime time = clockController.getClockTime();
+                DateTime time = clockController.getClockTime();
                 int seconds = time.getSecond() + 1;
                 int minutes = time.getMinute();
                 minutes = (seconds/60 == 1 && seconds != 0) ? minutes+1: minutes;
