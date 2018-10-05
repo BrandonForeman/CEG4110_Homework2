@@ -19,18 +19,31 @@ public class ClockController {
         this.clock = clock;
     }
 
-    public void addClockView(Integer clockType) {
+    /*
+    * Adds a clock view to the clock list view
+    * Param: Type of clock to create
+    * Returns: Index of clock added in clock list view
+    * */
+    public int addClockView(Integer clockType) {
         // digital clock
         // Note to self, use enums here instead of hard coded value
+        int size = 0;
         if(clockType == 1) {
-            clockAdapter.addNewView(1);
+            size = clockAdapter.addNewView(1);
         }
         // analog clock
         else {
 
         }
         clockAdapter.notifyDataSetChanged();
+        return size;
     }
+
+    public void removeClockView(int position) {
+        clockAdapter.removeView(position);
+        clockAdapter.notifyDataSetChanged();
+    }
+
 
     // get clock model time
     public DateTime getClockTime() {

@@ -1,11 +1,14 @@
 package foreman.brandon.homework2;
 
+import android.content.Context;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -41,7 +44,10 @@ public class Menu_Activity extends AppCompatActivity {
         listView.setAdapter(adapter);
 
         clockController.registerClockViewListAdapter(adapter);
-        clockController.addClockView(1);
+//        for(int i = 0; i< 20; i++) {
+//            clockController.addClockView(1);
+//        }
+
 
         // TODO: Add in Command design pattern for changing the time at which the clocks are set to
         // TODO: Make AnalogClockView
@@ -80,6 +86,35 @@ public class Menu_Activity extends AppCompatActivity {
         handler.postDelayed(r, 1000);
     }
 
+    public void changeClockTime(View view) {
 
+    }
+
+    public void addClock(View view){
+        Button bt = (Button)view;
+        Command command = null;
+        switch(bt.getId()) {
+            case R.id.bt_add_digitalClock:
+                // add digital clock
+                command = new CreateClockView(clockController, 1);
+                break;
+            case R.id.bt_add_analogClock:
+                // add analog clock
+                command = new CreateClockView(clockController, 2);
+                break;
+        }
+        if(command != null) {
+            command.doIt();
+            CommandQueue.push(command);
+        }
+    }
+
+    public void undoCommand(View view){
+        CommandQueue.undo();
+    }
+
+    public void redoCommand(View view) {
+        CommandQueue.redo();
+    }
 
 }

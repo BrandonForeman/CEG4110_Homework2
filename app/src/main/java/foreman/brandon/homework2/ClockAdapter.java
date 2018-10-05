@@ -54,8 +54,13 @@ public class ClockAdapter extends ArrayAdapter<Integer> {
         return clockViewRow;
     }
 
-    public void addNewView(Integer viewType) {
+    public int addNewView(Integer viewType) {
         values.add(viewType);
+        return values.size()-1;
+    }
+
+    public void removeView(int position) {
+        values.remove(position);
     }
 
     public void setDateTime(DateTime dateTime) {
