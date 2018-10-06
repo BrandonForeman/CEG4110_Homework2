@@ -1,21 +1,23 @@
 package foreman.brandon.homework2;
 
+import java.util.Calendar;
+
 public class Clock {
 
     private ClockController clockController;
-    private DateTime currentTime;
+    private Calendar calendar;
 
-    public Clock(ClockController clockController, DateTime time) {
+    public Clock(ClockController clockController, Calendar calendar) {
         this.clockController = clockController;
-        currentTime = time;
+        this.calendar = calendar;
     }
 
-    public DateTime getTime() {
-        return currentTime;
+    public Calendar getTime() {
+        return calendar;
     }
 
-    public void setTime(DateTime time) {
-        this.currentTime = time;
+    public void setTime(Calendar calendar) {
+        this.calendar = calendar;
         clockController.updateClockViews();
     }
 }

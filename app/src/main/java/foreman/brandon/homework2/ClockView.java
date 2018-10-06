@@ -4,9 +4,14 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.RelativeLayout;
 
+import java.util.Calendar;
+
+import foreman.brandon.homework2.ClockController;
+import foreman.brandon.homework2.DateTime;
+
 public abstract class ClockView extends RelativeLayout {
     private ClockController clockController;
-    private DateTime dateTime;
+    private Calendar calendar;
 
 
     public ClockView(Context context) {
@@ -17,11 +22,4 @@ public abstract class ClockView extends RelativeLayout {
         super(context, attrs);
     }
 
-    public void setDateTime(DateTime dateTime) {
-        this.dateTime = dateTime;
-    }
-
-    public DateTime getDateTime() {
-        return this.dateTime;
-    }
 }

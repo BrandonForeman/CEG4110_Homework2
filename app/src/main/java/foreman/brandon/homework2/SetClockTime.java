@@ -1,22 +1,25 @@
 package foreman.brandon.homework2;
 
+import java.util.Calendar;
+
 public class SetClockTime implements Command {
     private ClockController clockController;
-    private DateTime previousDateTime, newDateTime;
+    private Calendar previousCalendar;
+    private Calendar newCalendar;
 
-    public SetClockTime(ClockController clockController, DateTime previousDateTime, DateTime newDateTime) {
+    public SetClockTime(ClockController clockController, Calendar previousCalendar, Calendar newCalendar) {
         this.clockController = clockController;
-        this.previousDateTime = previousDateTime;
-        this.newDateTime = newDateTime;
+        this.previousCalendar = previousCalendar;
+        this.newCalendar = newCalendar;
     }
 
     @Override
     public void doIt() {
-        clockController.setClockTime(newDateTime);
+        clockController.setClockTime(newCalendar);
     }
 
     @Override
     public void undoIt() {
-        clockController.setClockTime(previousDateTime);
+        clockController.setClockTime(previousCalendar);
     }
 }

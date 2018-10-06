@@ -1,15 +1,17 @@
 package foreman.brandon.homework2;
 
+import java.util.Calendar;
+
 public class DateTime {
     private int second;
     private int minute;
     private int hour;
-    private String dayOfWeek;
+    private int dayOfWeek;
     private int day;
-    private String month;
+    private int month;
     private int year;
 
-    public DateTime(int second, int minute, int hour, String dayOfWeek, int day, String month, int year) {
+    public DateTime(int second, int minute, int hour, int dayOfWeek, int day, int month, int year) {
         this.second = second;
         this.minute = minute;
         this.hour = hour;
@@ -17,6 +19,16 @@ public class DateTime {
         this.day = day;
         this.month = month;
         this.year = year;
+    }
+
+    public DateTime(Calendar calendar) {
+        this.second = calendar.get(Calendar.SECOND);
+        this.minute = calendar.get(Calendar.MINUTE);;
+        this.hour = calendar.get(Calendar.HOUR);;
+        this.dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);;
+        this.day = calendar.get(Calendar.DAY_OF_MONTH);;
+        this.month = calendar.get(Calendar.MONTH);;
+        this.year = calendar.get(Calendar.YEAR);;
     }
 
     public int getSecond() {
@@ -43,11 +55,11 @@ public class DateTime {
         this.hour = hour;
     }
 
-    public String getDayOfWeek() {
+    public int getDayOfWeek() {
         return dayOfWeek;
     }
 
-    public void setDayOfWeek(String dayOfWeek) {
+    public void setDayOfWeek(int dayOfWeek) {
         this.dayOfWeek = dayOfWeek;
     }
 
@@ -59,11 +71,11 @@ public class DateTime {
         this.day = day;
     }
 
-    public String getMonth() {
+    public int getMonth() {
         return month;
     }
 
-    public void setMonth(String month) {
+    public void setMonth(int month) {
         this.month = month;
     }
 

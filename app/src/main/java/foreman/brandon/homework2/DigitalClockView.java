@@ -5,7 +5,13 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.TextView;
 
-public class DigitalClockView extends ClockView {
+import java.text.DateFormat;
+import java.text.Format;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Locale;
+
+public class DigitalClockView extends ClockView implements IClockView {
 
     private View rootView;
     private TextView clockTextView;
@@ -25,8 +31,9 @@ public class DigitalClockView extends ClockView {
         clockTextView = (TextView)rootView.findViewById(R.id.timeText);
     }
 
-    public void setDateTime(DateTime dateTime) {
-        clockTextView.setText(dateTime.toString());
+    public void setTime(Calendar calendar) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("E, MMM dd, yyyy hh:mm:ss a", Locale.US);
+        clockTextView.setText(dateFormat.format(calendar.getTime()));
     }
 
 

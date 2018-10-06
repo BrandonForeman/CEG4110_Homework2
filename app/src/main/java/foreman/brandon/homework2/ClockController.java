@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collection;
 
 public class ClockController {
@@ -33,7 +34,7 @@ public class ClockController {
         }
         // analog clock
         else {
-
+            size = clockAdapter.addNewView(2);
         }
         clockAdapter.notifyDataSetChanged();
         return size;
@@ -46,13 +47,13 @@ public class ClockController {
 
 
     // get clock model time
-    public DateTime getClockTime() {
+    public Calendar getClockTime() {
         return clock.getTime();
     }
 
     // set clock model time
-    public void setClockTime(DateTime date) {
-        clock.setTime(date);
+    public void setClockTime(Calendar calendar) {
+        clock.setTime(calendar);
     }
 
     // set adapter for list view
