@@ -1,14 +1,10 @@
 package foreman.brandon.homework2;
 
-import android.content.Context;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.RecyclerView;
-import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -17,8 +13,15 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
-import java.util.List;
 import java.util.Locale;
+
+import foreman.brandon.homework2.Commands.Command;
+import foreman.brandon.homework2.Commands.CommandQueue;
+import foreman.brandon.homework2.Commands.CreateClockView;
+import foreman.brandon.homework2.Commands.SetClockTime;
+import foreman.brandon.homework2.Controllers.ClockController;
+import foreman.brandon.homework2.Models.Clock;
+import foreman.brandon.homework2.Views.ClockAdapter;
 
 public class Menu_Activity extends AppCompatActivity {
 
@@ -56,7 +59,7 @@ public class Menu_Activity extends AppCompatActivity {
 
         // TODO: Add in Command design pattern for changing the time at which the clocks are set to // Done
         // TODO: Make AnalogClockView // Done
-        // TODO: Use Calendar when setting DateTime for clock model // Done
+        // TODO: Use Calendar when setting Date Time for clock model // Done
         // TODO: Remove unneeded controller passins and clean up code // Sorta Done
         // TODO: Ask about whether Command design pattern views should be in Clock Controller or can exist on the Menu_Activity layer
         // TODO: Ask about how to represent views in Android form i.e. Layouts are views but really XML if they don't have their classes defined in code unless through custom means

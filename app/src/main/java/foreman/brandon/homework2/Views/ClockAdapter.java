@@ -1,20 +1,14 @@
-package foreman.brandon.homework2;
-
-import android.app.Application;
+package foreman.brandon.homework2.Views;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.TextView;
-
-import com.tomerrosenfeld.customanalogclockview.CustomAnalogClock;
-
-import org.w3c.dom.Text;
-
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+
+import foreman.brandon.homework2.Controllers.ClockController;
+import foreman.brandon.homework2.R;
 
 import static foreman.brandon.homework2.R.layout.analogclock_row;
 
@@ -58,12 +52,8 @@ public class ClockAdapter extends ArrayAdapter<Integer> {
         // analog clock
         else {
             clockViewRow = layoutInflater.inflate(analogclock_row, parent, false);
-            CustomAnalogClock customAnalogClock = (CustomAnalogClock) clockViewRow.findViewById(R.id.analog_clock);
-            customAnalogClock.init(clockViewRow.getContext(), R.drawable.default_face, R.drawable.default_hour_hand, R.drawable.default_minute_hand, 0, false, false);
-            TextView tx = (TextView) clockViewRow.findViewById(R.id.tx_analogDate);
-            SimpleDateFormat dateFormat = new SimpleDateFormat("MMM dd, YYYY");
-            tx.setText(dateFormat.format(calendar.getTime()));
-            customAnalogClock.setTime(calendar);
+            AnalogClockView clockView = (AnalogClockView) clockViewRow.findViewById(R.id.analogClock_view);
+            clockView.setTime(calendar);
         }
         return clockViewRow;
     }

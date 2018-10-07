@@ -1,17 +1,18 @@
-package foreman.brandon.homework2;
+package foreman.brandon.homework2.Views;
 
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import java.text.DateFormat;
-import java.text.Format;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 
-public class DigitalClockView extends ClockView implements IClockView {
+import foreman.brandon.homework2.R;
+
+public class DigitalClockView extends RelativeLayout implements IClockView {
 
     private View rootView;
     private TextView clockTextView;

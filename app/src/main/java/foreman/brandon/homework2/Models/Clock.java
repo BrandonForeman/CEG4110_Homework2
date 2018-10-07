@@ -1,6 +1,8 @@
-package foreman.brandon.homework2;
+package foreman.brandon.homework2.Models;
 
 import java.util.Calendar;
+
+import foreman.brandon.homework2.Controllers.ClockController;
 
 public class Clock {
 

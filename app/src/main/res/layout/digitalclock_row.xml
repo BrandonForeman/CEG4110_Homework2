@@ -3,9 +3,9 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
 
-    <foreman.brandon.homework2.DigitalClockView
+    <foreman.brandon.homework2.Views.DigitalClockView
         android:id="@+id/digitalClock_view"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"></foreman.brandon.homework2.DigitalClockView>
+        android:layout_height="wrap_content"></foreman.brandon.homework2.Views.DigitalClockView>
 
 </LinearLayout>

@@ -1,12 +1,9 @@
-package foreman.brandon.homework2;
+package foreman.brandon.homework2.Controllers;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.widget.TextView;
-
-import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Collection;
+
+import foreman.brandon.homework2.Models.Clock;
+import foreman.brandon.homework2.Views.ClockAdapter;
 
 public class ClockController {
     private Clock clock;

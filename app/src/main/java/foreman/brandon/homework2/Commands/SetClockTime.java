@@ -1,6 +1,8 @@
-package foreman.brandon.homework2;
+package foreman.brandon.homework2.Commands;
 
 import java.util.Calendar;
+
+import foreman.brandon.homework2.Controllers.ClockController;
 
 public class SetClockTime implements Command {
     private ClockController clockController;

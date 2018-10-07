@@ -1,4 +1,4 @@
-package foreman.brandon.homework2;
+package foreman.brandon.homework2.Views;
 
 import java.util.Calendar;
 

@@ -1,4 +1,6 @@
-package foreman.brandon.homework2;
+package foreman.brandon.homework2.Commands;
+
+import foreman.brandon.homework2.Controllers.ClockController;
 
 public class CreateClockView implements Command {
     private ClockController clockController;

@@ -4,19 +4,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.tomerrosenfeld.customanalogclockview.CustomAnalogClock
-        android:id="@+id/analog_clock"
+    <foreman.brandon.homework2.Views.AnalogClockView
+        android:id="@+id/analogClock_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center_horizontal" />
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/tx_analogDate"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="TextView"
-        android:textAlignment="center"
-        android:textSize="30dp" />
+    </foreman.brandon.homework2.Views.AnalogClockView>
 
 </LinearLayout>

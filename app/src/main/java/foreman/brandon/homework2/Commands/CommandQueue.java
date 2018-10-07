@@ -1,7 +1,6 @@
-package foreman.brandon.homework2;
+package foreman.brandon.homework2.Commands;
 
 import java.util.ArrayDeque;
-import java.util.Queue;
 
 public class CommandQueue {
     private static CommandQueue inst = new CommandQueue();
