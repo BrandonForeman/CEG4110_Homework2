@@ -35,7 +35,7 @@ public class AnalogClockView extends RelativeLayout implements IClockView {
 
     @Override
     public void setTime(Calendar calendar) {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("MMM dd, YYYY, ss");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("MMM dd, YYYY, ss a");
         date.setText(dateFormat.format(calendar.getTime()));
         clock.setTime(calendar);
     }

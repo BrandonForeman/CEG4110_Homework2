@@ -38,7 +38,7 @@ public class Menu_Activity extends AppCompatActivity {
 
         // Initialize ClockController
         clockController = new ClockController();
-        Calendar initCalendar = new GregorianCalendar();
+        Calendar initCalendar = null;
 
         // Initialize ClockModel
         clock = new Clock(clockController, initCalendar);
@@ -118,6 +118,15 @@ public class Menu_Activity extends AppCompatActivity {
     public void addClock(View view){
         Button bt = (Button)view;
         Command command = null;
+        if(clockController.getNumberOfClocks() == 0) {
+            clockController.setClockTime(Calendar.getInstance());
+        }
+
+        if(firstClock == true) {
+            createClockThread();
+            firstClock = !firstClock;
+        }
+
         switch(bt.getId()) {
             case R.id.bt_add_digitalClock:
                 // add digital clock
@@ -128,15 +137,12 @@ public class Menu_Activity extends AppCompatActivity {
                 command = new CreateClockView(clockController, 2);
                 break;
         }
+
         if(command != null) {
             command.doIt();
             CommandQueue.push(command);
         }
 
-        if(firstClock) {
-            createClockThread();
-            firstClock = !firstClock;
-        }
     }
 
     public void undoCommand(View view){
@@ -158,7 +164,7 @@ public class Menu_Activity extends AppCompatActivity {
             public void run() {
                 Calendar calendar = clockController.getClockTime();
                 calendar.add(Calendar.SECOND, 1);
-                SimpleDateFormat dateFormat = new SimpleDateFormat("EEEEE MMMMM yyyy HH:mm:ss", Locale.US);
+                SimpleDateFormat dateFormat = new SimpleDateFormat("E, MMM dd, yyyy hh:mm:ss a", Locale.US);
                 Log.d("TIME", dateFormat.format(calendar.getTime()));
                 clockController.setClockTime(calendar);
 
