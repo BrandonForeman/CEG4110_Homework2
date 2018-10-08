@@ -42,6 +42,10 @@ public class ClockController {
         clockAdapter.notifyDataSetChanged();
     }
 
+    public int getNumberOfClocks() {
+        return clockAdapter.getSize();
+    }
+
 
     // get clock model time
     public Calendar getClockTime() {
