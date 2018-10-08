@@ -61,8 +61,9 @@ public class Menu_Activity extends AppCompatActivity {
         // TODO: Make AnalogClockView // Done
         // TODO: Use Calendar when setting Date Time for clock model // Done
         // TODO: Remove unneeded controller passins and clean up code // Sorta Done
-        // TODO: Ask about whether Command design pattern views should be in Clock Controller or can exist on the Menu_Activity layer
-        // TODO: Ask about how to represent views in Android form i.e. Layouts are views but really XML if they don't have their classes defined in code unless through custom means
+        // TODO: Ask about whether Command design pattern views should be in Clock Controller or can exist on the Menu_Activity layer // Fine to do this way
+        // TODO: Ask about how to represent views in Android form i.e. Layouts are views but really XML if they don't have their classes defined in code unless through custom means // We just also used custom view classes. Done
+        // TODO: Add documentation
 
 
     }
