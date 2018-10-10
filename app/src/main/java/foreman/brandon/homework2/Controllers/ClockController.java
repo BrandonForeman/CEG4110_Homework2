@@ -64,7 +64,7 @@ public class ClockController {
 
     // update all clocks in list view to in sync with new clock model time
     public void updateClockViews() {
-        clockAdapter.setDateTime(clock.getTime());
+        clockAdapter.setTime(clock.getTime());
         clockAdapter.notifyDataSetChanged();
     }
 }

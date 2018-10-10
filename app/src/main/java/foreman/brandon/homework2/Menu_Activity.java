@@ -49,23 +49,12 @@ public class Menu_Activity extends AppCompatActivity {
         ArrayList<Integer> st = new ArrayList<Integer>();
         // setup our adapter for list view, to take in clock views
         ClockAdapter adapter = new ClockAdapter(this, R.layout.menu_activity, st);
-        adapter.setDateTime(initCalendar);
+        adapter.setTime(initCalendar);
         ListView listView = (ListView) findViewById(R.id.listedClocks_listView);
         listView.setAdapter(adapter);
 
         // Register View in controller
         clockController.registerClockViewListAdapter(adapter);
-
-
-        // TODO: Add in Command design pattern for changing the time at which the clocks are set to // Done
-        // TODO: Make AnalogClockView // Done
-        // TODO: Use Calendar when setting Date Time for clock model // Done
-        // TODO: Remove unneeded controller passins and clean up code // Sorta Done
-        // TODO: Ask about whether Command design pattern views should be in Clock Controller or can exist on the Menu_Activity layer // Fine to do this way
-        // TODO: Ask about how to represent views in Android form i.e. Layouts are views but really XML if they don't have their classes defined in code unless through custom means // We just also used custom view classes. Done
-        // TODO: Add documentation
-
-
     }
 
     public void changeClockTime(View view) {
@@ -174,7 +163,7 @@ public class Menu_Activity extends AppCompatActivity {
         };
 
         handler = new Handler();
-        // delay the task so that it on;y runs every second
+        // delay the task so that it only runs every second
         handler.postDelayed(r, 1000);
     }
 

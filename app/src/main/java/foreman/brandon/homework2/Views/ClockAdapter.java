@@ -7,16 +7,13 @@ import android.widget.ArrayAdapter;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-import foreman.brandon.homework2.Controllers.ClockController;
 import foreman.brandon.homework2.R;
 
 import static foreman.brandon.homework2.R.layout.analogclock_row;
 
 public class ClockAdapter extends ArrayAdapter<Integer> {
-    private ClockController clockController;
-    private ArrayList<Integer> values;
-    //    private String[] values;
-    private Calendar calendar;
+    private ArrayList<Integer> views;
+    private Calendar time;
 
     public ClockAdapter(Context context, int resource) {
         super(context, resource);
@@ -26,15 +23,11 @@ public class ClockAdapter extends ArrayAdapter<Integer> {
         super(context, resource, textViewResourceId);
     }
 
-    public ClockAdapter(Context context, int resource, ArrayList<Integer> values) {
-        // Note to future Brandon, do not touch this constructor. The values arraylist is both the super class arraylist and child class's array list. There is no public getter for the values
-        // in superclass. So we must assign the values here also in the child class. If you don't assign in both places, view doesn't display anything.
-        super(context, resource, values);
-        this.values = values;
-    }
-
-    public void RegisterClockController(ClockController clockController) {
-        this.clockController = clockController;
+    public ClockAdapter(Context context, int resource, ArrayList<Integer> views) {
+        // Note to future Brandon, do not touch this constructor. The views arraylist is both the super class arraylist and child class's array list. There is no public getter for the views
+        // in superclass. So we must assign the views here also in the child class. If you don't assign in both places, view doesn't display anything.
+        super(context, resource, views);
+        this.views = views;
     }
 
     @Override
@@ -43,35 +36,35 @@ public class ClockAdapter extends ArrayAdapter<Integer> {
         LayoutInflater layoutInflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View clockViewRow = null;
         // digital clock
-        if(values.get(position) == 1) {
+        if(views.get(position) == 1) {
             // inflate the view
             clockViewRow = layoutInflater.inflate(R.layout.digitalclock_row, parent, false);
             DigitalClockView clockView = (DigitalClockView) clockViewRow.findViewById(R.id.digitalClock_view);
-            clockView.setTime(calendar);
+            clockView.setTime(time);
         }
         // analog clock
         else {
             clockViewRow = layoutInflater.inflate(analogclock_row, parent, false);
             AnalogClockView clockView = (AnalogClockView) clockViewRow.findViewById(R.id.analogClock_view);
-            clockView.setTime(calendar);
+            clockView.setTime(time);
         }
         return clockViewRow;
     }
 
     public int addNewView(Integer viewType) {
-        values.add(viewType);
-        return values.size()-1;
+        views.add(viewType);
+        return views.size()-1;
     }
 
     public void removeView(int position) {
-        values.remove(position);
+        views.remove(position);
     }
 
-    public void setDateTime(Calendar calendar) {
-        this.calendar = calendar;
+    public void setTime(Calendar calendar) {
+        this.time = calendar;
     }
 
     public int getSize() {
-        return values.size();
+        return views.size();
     }
 }

@@ -2,6 +2,6 @@ package foreman.brandon.homework2.Views;
 
 import java.util.Calendar;
 
-public interface IClockView {
+public interface ClockView {
     void setTime(Calendar calendar);
 }

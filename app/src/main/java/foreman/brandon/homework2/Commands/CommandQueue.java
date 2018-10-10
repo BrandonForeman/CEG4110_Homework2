@@ -3,7 +3,7 @@ package foreman.brandon.homework2.Commands;
 import java.util.ArrayDeque;
 
 public class CommandQueue {
-    private static CommandQueue inst = new CommandQueue();
+    private static CommandQueue commandQueue = new CommandQueue();
     private static ArrayDeque<Command> completedCommands;
     private static ArrayDeque<Command> undoneCommands;
 

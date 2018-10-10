@@ -7,19 +7,19 @@ import foreman.brandon.homework2.Controllers.ClockController;
 public class Clock {
 
     private ClockController clockController;
-    private Calendar calendar;
+    private Calendar time;
 
-    public Clock(ClockController clockController, Calendar calendar) {
+    public Clock(ClockController clockController, Calendar time) {
         this.clockController = clockController;
-        this.calendar = calendar;
+        this.time = time;
     }
 
     public Calendar getTime() {
-        return calendar;
+        return time;
     }
 
     public void setTime(Calendar calendar) {
-        this.calendar = calendar;
+        this.time = calendar;
         clockController.updateClockViews();
     }
 }

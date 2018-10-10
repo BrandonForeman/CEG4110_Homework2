@@ -12,10 +12,10 @@ import java.util.Calendar;
 
 import foreman.brandon.homework2.R;
 
-public class AnalogClockView extends RelativeLayout implements IClockView {
+public class AnalogClockView extends RelativeLayout implements ClockView {
     private View rootView;
     private CustomAnalogClock clock;
-    private TextView date;
+    private TextView timeInfo;
     public AnalogClockView(Context context) {
         super(context);
         init(context);
@@ -28,15 +28,15 @@ public class AnalogClockView extends RelativeLayout implements IClockView {
 
     public void init(Context context) {
         rootView = inflate(context, R.layout.analogclock_view, this);
-         date = (TextView)rootView.findViewById(R.id.tx_analogDate);
+         timeInfo = (TextView)rootView.findViewById(R.id.tx_analogDate);
          clock = (CustomAnalogClock)rootView.findViewById(R.id.analog_clock);
          clock.init(context, R.drawable.default_face, R.drawable.default_hour_hand, R.drawable.default_minute_hand, 0, false, false);
     }
 
     @Override
     public void setTime(Calendar calendar) {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("MMM dd, YYYY, ss a");
-        date.setText(dateFormat.format(calendar.getTime()));
+        SimpleDateFormat dateFormat = new SimpleDateFormat("E, MMM dd, YYYY a");
+        timeInfo.setText(dateFormat.format(calendar.getTime()) + " Seconds: " + calendar.get(Calendar.SECOND));
         clock.setTime(calendar);
     }
 

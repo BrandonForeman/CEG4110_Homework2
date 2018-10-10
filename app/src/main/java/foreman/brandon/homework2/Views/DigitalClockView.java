@@ -12,10 +12,9 @@ import java.util.Locale;
 
 import foreman.brandon.homework2.R;
 
-public class DigitalClockView extends RelativeLayout implements IClockView {
+public class DigitalClockView extends RelativeLayout implements ClockView {
 
-    private View rootView;
-    private TextView clockTextView;
+    private TextView time;
 
     public DigitalClockView(Context context) {
         super(context);
@@ -28,13 +27,13 @@ public class DigitalClockView extends RelativeLayout implements IClockView {
     }
 
     public void init(Context context) {
-        rootView = inflate(context, R.layout.digitalclock_view, this);
-        clockTextView = (TextView)rootView.findViewById(R.id.timeText);
+        View rootView = inflate(context, R.layout.digitalclock_view, this);
+        time = (TextView)rootView.findViewById(R.id.timeText);
     }
 
     public void setTime(Calendar calendar) {
         SimpleDateFormat dateFormat = new SimpleDateFormat("E, MMM dd, yyyy hh:mm:ss a", Locale.US);
-        clockTextView.setText(dateFormat.format(calendar.getTime()));
+        time.setText(dateFormat.format(calendar.getTime()));
     }
 
 
