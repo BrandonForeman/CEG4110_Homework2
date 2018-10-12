@@ -2,12 +2,11 @@ package foreman.brandon.homework2.Controllers;
 
 import java.util.Calendar;
 
-import foreman.brandon.homework2.Commands.CommandQueue;
-import foreman.brandon.homework2.Models.Clock;
+import foreman.brandon.homework2.Models.ClockModel;
 import foreman.brandon.homework2.Views.ClockAdapter;
 
 public class ClockController {
-    private Clock clock;
+    private ClockModel clockModel;
     private ClockAdapter clockAdapter;
 
     public ClockController() {
@@ -18,8 +17,8 @@ public class ClockController {
      * Param:
      * Returns: void
      * */
-    public void registerClock(Clock clock) {
-        this.clock = clock;
+    public void registerClock(ClockModel clockModel) {
+        this.clockModel = clockModel;
     }
 
     /*
@@ -67,12 +66,12 @@ public class ClockController {
      * Returns: Calendar
      * */
     public Calendar getClockTime() {
-        return clock.getTime();
+        return clockModel.getTime();
     }
 
     // set clock model time
     public void setClockTime(Calendar calendar) {
-        clock.setTime(calendar);
+        clockModel.setTime(calendar);
     }
 
     /*
@@ -90,7 +89,7 @@ public class ClockController {
      * Returns: void
      * */
     public void updateClockViews() {
-        clockAdapter.setTime(clock.getTime());
+        clockAdapter.setTime(clockModel.getTime());
         clockAdapter.notifyDataSetChanged();
     }
 }

@@ -3,29 +3,26 @@ package foreman.brandon.homework2;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
-import java.util.Locale;
 
 import foreman.brandon.homework2.Commands.Command;
 import foreman.brandon.homework2.Commands.CommandQueue;
 import foreman.brandon.homework2.Commands.CreateClockView;
 import foreman.brandon.homework2.Commands.SetClockTime;
 import foreman.brandon.homework2.Controllers.ClockController;
-import foreman.brandon.homework2.Models.Clock;
+import foreman.brandon.homework2.Models.ClockModel;
 import foreman.brandon.homework2.Views.ClockAdapter;
 
 public class Menu_Activity extends AppCompatActivity {
 
-    private Clock clock;
+    private ClockModel clockModel;
     private ClockController clockController;
     private Runnable r;
     private Handler handler;
@@ -41,10 +38,10 @@ public class Menu_Activity extends AppCompatActivity {
         Calendar initCalendar = null;
 
         // Initialize ClockModel
-        clock = new Clock(initCalendar);
-        clock.registerClockController(clockController);
+        clockModel = new ClockModel(initCalendar);
+        clockModel.registerClockController(clockController);
         //Register ClockModel in controller
-        clockController.registerClock(clock);
+        clockController.registerClock(clockModel);
 
         // Setup ClockView
         ArrayList<Integer> st = new ArrayList<Integer>();

@@ -4,12 +4,12 @@ import java.util.Calendar;
 
 import foreman.brandon.homework2.Controllers.ClockController;
 
-public class Clock {
+public class ClockModel {
 
     private ClockController clockController;
     private Calendar time;
 
-    public Clock(Calendar time) {
+    public ClockModel(Calendar time) {
         this.time = time;
     }
 

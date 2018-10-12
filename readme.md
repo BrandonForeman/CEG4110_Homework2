@@ -35,11 +35,11 @@ The installation for this library is as follows:
 
 2. Add the JitPack repository to your build file in your root gradle file
 
-   ![setupStep1](C:\Users\Brandon\Desktop\HW2 Images\Photos\setupStep1.png)
+   ![setupStep1](Photos\setupStep1.png)
 
 3. Add the dependency to the library in your apps gradle file. This will be different from the gradle file from part 2. 
 
-   ![deployment1](C:\Users\Brandon\Desktop\HW2 Images\deployment1.PNG)
+   ![deployment1](Photos\deployment1.PNG)
 
    Now you're all set! You can now use all the CustomAnalogClockView object included with this library. For more information on how to use the library's, refer to the github page in step one
 
@@ -48,11 +48,11 @@ The installation for this library is as follows:
 ### Setting up the Project
 
 | To deploy the app to your device, follow these instructions: |
-| ---------------------------------------- |
+| ------------------------------------------------------------ |
 | 1. Move the Homework2.apk executable to your mobile device by any method. |
-| 2. Open and run the Homework2.apk by clicking on it |
-| 3. Allow access to unknown apps in your settings.<br />![deployment_step1](C:\Users\Brandon\Desktop\HW2 Images\deployment_step1.jpg) |
-| 4. Now install the application via any means |
+| 2. Open and run the Homework2.apk by clicking on it          |
+| 3. Allow access to unknown apps in your settings.<br />![deployment_step1](Photos\deployment_step1.jpg) |
+| 4. Now install the application via any means                 |
 
 ---
 
@@ -60,25 +60,25 @@ The installation for this library is as follows:
 
 The application only has one view. The upper portion of the view contains the controls for the clocks. The lower portion of the view displays the created clocks.
 
-| Main screen:                             |
-| ---------------------------------------- |
-| This is the screen you will see when you start up the application.![instructions1](C:\Users\Brandon\Desktop\HW2 Images\Photos\instructions1.jpg) |
-| 1. Add a digital clock by selecting "Add Digital Clock". |
-| Click "Add Digital Clock".<br />![instructions1_edit](C:\Users\Brandon\Desktop\HW2 Images\Photos\instructions1_edit.jpg)<br />You can see a digital clock appear in the lower portion of the screen. The initial time of the clocks defaults to the device's current time. **Keep in mind there is a small amount of delay between the clock view's instantiation time and the device's time.** **Therefore the clock views may be a second off from the actual time.**<br />![instructions2](C:\Users\Brandon\Desktop\HW2 Images\Photos\instructions2.jpg) |
-| 2. Add an analog clock by selecting "Add Analog Clock". |
-| Click "Add Analog Clock"<br />![instructions2.1_edit](C:\Users\Brandon\Desktop\HW2 Images\Photos\instructions2.1_edit.jpg)<br />You can see an analog clock appear in the lower portion of the screen. This clock is the same time as the digital clock's time.<br />![instructions3](C:\Users\Brandon\Desktop\HW2 Images\Photos\instructions3.jpg) |
-| 3. Changing the time                     |
-| Change "00:00:00" plain text to be the new desired time in the format of "hour:minute:second"  then select "Change Time".<br />![instructions3_edit](C:\Users\Brandon\Desktop\HW2 Images\Photos\instructions3_edit.jpg)<br />You can see that both clocks times have been updated.<br />![instructions4](C:\Users\Brandon\Desktop\HW2 Images\Photos\instructions4.jpg) |
-| 4. Changing the date                     |
-| Change "1/1/2018" plain text to be the new desired date in the format "Month/Day/Year" **as integer values**, then click "Change Date".<br />![instructions4_edit](C:\Users\Brandon\Desktop\HW2 Images\Photos\instructions4_edit.jpg)<br />You can see that both clocks dates have been updated.<br />![instructions5](C:\Users\Brandon\Desktop\HW2 Images\Photos\instructions5.jpg) |
-| 5. Undo a clock creation by clicking "Undo Command" |
-| Add a Clock View and then click the "Undo Command" button.<br />![instructions8_edit](C:\Users\Brandon\Desktop\HW2 Images\Photos\instructions8_edit.jpg)<br />You can see that the clock creation has been undone. Note: the redo command works the same for the creation of both analog and digital clocks<br />![instructions1](C:\Users\Brandon\Desktop\HW2 Images\Photos\instructions1.jpg) |
-| 6. Redo a clock creation by clicking "Redo Command" |
-| In continuation from example (5), a Clock View creation had been undone.<br />![instructions1](C:\Users\Brandon\Desktop\HW2 Images\Photos\instructions1.jpg)<br /> Select "Redo Command".<br />![instructions7.1_edit](C:\Users\Brandon\Desktop\HW2 Images\Photos\instructions7.1_edit.jpg)<br />Now you can see that the digital clock we added in example (5) has returned. Note: the redo command works the same for the creation of both analog and digital clocks.<br />![instructions2](C:\Users\Brandon\Desktop\HW2 Images\Photos\instructions2.jpg) |
+| Main screen:                                                 |
+| ------------------------------------------------------------ |
+| This is the screen you will see when you start up the application.![instructions1](Photos\instructions1.jpg) |
+| 1. Add a digital clock by selecting "Add Digital Clock".     |
+| Click "Add Digital Clock".<br />![instructions1_edit](Photos\instructions1_edit.jpg)<br />You can see a digital clock appear in the lower portion of the screen. The initial time of the clocks defaults to the device's current time. **Keep in mind there is a small amount of delay between the clock view's instantiation time and the device's time.** **Therefore the clock views may be a second off from the actual time.**<br />![instructions2](Photos\instructions2.jpg) |
+| 2. Add an analog clock by selecting "Add Analog Clock".      |
+| Click "Add Analog Clock"<br />![instructions2.1_edit](Photos\instructions2.1_edit.jpg)<br />You can see an analog clock appear in the lower portion of the screen. This clock is the same time as the digital clock's time.<br />![instructions3](Photos\instructions2.2.jpg) |
+| 3. Changing the time                                         |
+| Change "00:00:00" plain text to be the new desired time in the format of "hour:minute:second" **as integer values**,  then select "Change Time".<br />![instructions3_edit](Photos\instructions3_edit.jpg)<br />You can see that both clocks times have been updated.<br />![instructions4](Photos\instructions3.1.jpg) |
+| 4. Changing the date                                         |
+| Change "1/1/2018" plain text to be the new desired date in the format "Month/Day/Year" **as integer values**, then click "Change Date".<br />![instructions4_edit](Photos/instructions4_edit.jpg)<br />You can see that both clocks dates have been updated.<br />![instructions5](Photos\instructions4.1.jpg) |
+| 5. Undo a clock creation by clicking "Undo Command"          |
+| Add a Clock View and then click the "Undo Command" button.<br />![instructions8_edit](Photos\instructions5.0_edit.jpg)<br />You can see that the clock creation has been undone. Note: the undo command works the same for the creation of both analog and digital clocks<br />![instructions1](Photos\instructions1.jpg) |
+| 6. Redo a clock creation by clicking "Redo Command"          |
+| In continuation from example (5), a Clock View creation had been undone.<br />![instructions1](Photos\instructions1.jpg)<br /> Select "Redo Command".<br />![instructions7.1_edit](Photos\instructions6.1_edit.jpg)<br />Now you can see that the digital clock we added in example (5) has returned. Note: the redo command works the same for the creation of both analog and digital clocks.<br />![instructions2](Photos\instructions2.jpg) |
 | 7. Undo a time change/date change by clicking "Undo Command" |
-| Add a digital clock and change the date.<br />![instructions2](C:\Users\Brandon\Desktop\HW2 Images\Photos\instructions8.jpg) <br />The clock was originally set to 11:19 AM. Now it has been set to 12:00 AM. Now select "Undo Command"<br />![instructions9](C:\Users\Brandon\Desktop\HW2 Images\Photos\instructions9.2.jpg) <br />You can see that the clock is now back to its original time. Note: the undo command works the same for the date and/or time change of both analog and digital clocks.<br />![instructions8](C:\Users\Brandon\Desktop\HW2 Images\Photos\instructions8.jpg). |
-| 8. Redo time change/date change by clicking "Redo Command" |
-| In continuation from example (7), click the "Redo Command" button.<br />![instructions9_edit](C:\Users\Brandon\Desktop\HW2 Images\Photos\instructions9_edit.jpg)<br />You can see that the clock goes back the the time it was changed to before the command was undone. Note: the redo command works the same for the time and/or date change of both analog and digital clocks.<br />![instructions9](C:\Users\Brandon\Desktop\HW2 Images\Photos\instructions9.jpg) |
+| Add a digital clock.<br />![instructions2](Photos\instructions7.0.jpg) <br />Change the date and  select "Undo Command"<br />![instructions9](Photos\instructions7.1.jpg) <br />You can see that the clock is now back to its original time. Note: the undo command works the same for the date and/or time change of both analog and digital clocks.<br />![instructions8](Photos\instructions7.0.jpg). |
+| 8. Redo time change/date change by clicking "Redo Command"   |
+| In continuation from example (7), click the "Redo Command" button.<br />![instructions9_edit](Photos\instructions8.0_edit.jpg)<br />You can see that the clock goes back the the time it was changed to before the command was undone. Note: the redo command works the same for the time and/or date change of both analog and digital clocks.<br />![instructions9](Photos\instructions8.1.jpg) |
 
 Note: Undo's and Redo's can be done without bounds. For example, if you create one-hundred clocks, you will be able to undo all of those creations and then redo them. 
 
@@ -109,7 +109,7 @@ ClockController is the *controller* piece of the Model, View, Controller design 
 
 ##### Clock Model
 
-The clock model is *model* piece of the Model, View, Controller design pattern. The Clock Model is responsible for holding the date related information for the clocks that will be displayed in the UI (user interface) of the application. The Clock Model holds a Java Calendar. Calendar is a class which allows for storing of a specific date and time, while also having underlying logic to handle incrementation of the date and time. This means that a Java Calendar can be at a specific date and time, but can also be incremented to a new date and time without the creation of a new Calendar object. 
+The Clock Model is *model* piece of the Model, View, Controller design pattern. The Clock Model is responsible for holding the date related information for the clocks that will be displayed in the UI (user interface) of the application. The Clock Model holds a Java Calendar. Calendar is a class which allows for storing of a specific date and time, while also having underlying logic to handle incrementation of the date and time. This means that a Java Calendar can be at a specific date and time, but can also be incremented to a new date and time without the creation of a new Calendar object. 
 
 
 
@@ -161,7 +161,9 @@ The SetClockTimeCommand is another piece of the Command design pattern. It is si
 
 ----
 
+##### Closing Thoughts
 
+Reach me at bforeman7777@gmail.com.
 
 
 
