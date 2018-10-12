@@ -62,7 +62,7 @@ The application only has one view. The upper portion of the view contains the co
 
 | Main screen:                                                 |
 | ------------------------------------------------------------ |
-| This is the screen you will see when you start up the application.![instructions1](Photos/instructions1.jpg) |
+| This is the screen you will see when you start up the application.<br />![instructions1](Photos/instructions1.jpg) |
 | 1. Add a digital clock by selecting "Add Digital Clock".     |
 | Click "Add Digital Clock".<br />![instructions1_edit](Photos/instructions1_edit.jpg)<br />You can see a digital clock appear in the lower portion of the screen. The initial time of the clocks defaults to the device's current time. **Keep in mind there is a small amount of delay between the clock view's instantiation time and the device's time.** **Therefore the clock views may be a second off from the actual time.**<br />![instructions2](Photos/instructions2.jpg) |
 | 2. Add an analog clock by selecting "Add Analog Clock".      |
