@@ -24,8 +24,9 @@ public class ClockAdapter extends ArrayAdapter<Integer> {
     }
 
     public ClockAdapter(Context context, int resource, ArrayList<Integer> views) {
-        // Note to future Brandon, do not touch this constructor. The views arraylist is both the super class arraylist and child class's array list. There is no public getter for the views
-        // in superclass. So we must assign the views here also in the child class. If you don't assign in both places, view doesn't display anything.
+        // The view's array list is both the super class' array list and child class' array list.
+        // There is no public getter for the views in superclass.
+        // So we must assign the views here also in the child class. If you don't assign in both places, view doesn't display anything.
         super(context, resource, views);
         this.views = views;
     }
@@ -44,6 +45,7 @@ public class ClockAdapter extends ArrayAdapter<Integer> {
         }
         // analog clock
         else {
+            // inflate the view
             clockViewRow = layoutInflater.inflate(analogclock_row, parent, false);
             AnalogClockView clockView = (AnalogClockView) clockViewRow.findViewById(R.id.analogClock_view);
             clockView.setTime(time);
@@ -51,11 +53,21 @@ public class ClockAdapter extends ArrayAdapter<Integer> {
         return clockViewRow;
     }
 
+    /*
+     * Add a new clock view to the list view. Takes in the clock type as an Integer and returns the index, from the adapter's array list, of the newly created clock view.
+     * Param: Integer clockType
+     * Returns: int index
+     * */
     public int addNewView(Integer viewType) {
         views.add(viewType);
         return views.size()-1;
     }
 
+    /*
+     * Remove clock view from list view. Takes in the index of the element to be deleted
+     * Param: int elementToDelete
+     * Returns: void
+     * */
     public void removeView(int position) {
         views.remove(position);
     }

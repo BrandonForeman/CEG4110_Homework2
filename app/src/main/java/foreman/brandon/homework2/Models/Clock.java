@@ -9,8 +9,7 @@ public class Clock {
     private ClockController clockController;
     private Calendar time;
 
-    public Clock(ClockController clockController, Calendar time) {
-        this.clockController = clockController;
+    public Clock(Calendar time) {
         this.time = time;
     }
 
@@ -20,6 +19,11 @@ public class Clock {
 
     public void setTime(Calendar calendar) {
         this.time = calendar;
+        // tell the clock controller to update its views since the model changed
         clockController.updateClockViews();
+    }
+
+    public void registerClockController(ClockController clockController) {
+        this.clockController = clockController;
     }
 }

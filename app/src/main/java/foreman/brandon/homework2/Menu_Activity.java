@@ -41,13 +41,14 @@ public class Menu_Activity extends AppCompatActivity {
         Calendar initCalendar = null;
 
         // Initialize ClockModel
-        clock = new Clock(clockController, initCalendar);
+        clock = new Clock(initCalendar);
+        clock.registerClockController(clockController);
         //Register ClockModel in controller
         clockController.registerClock(clock);
 
         // Setup ClockView
         ArrayList<Integer> st = new ArrayList<Integer>();
-        // setup our adapter for list view, to take in clock views
+        // setup our adapter for list view, to display clock views
         ClockAdapter adapter = new ClockAdapter(this, R.layout.menu_activity, st);
         adapter.setTime(initCalendar);
         ListView listView = (ListView) findViewById(R.id.listedClocks_listView);
@@ -60,7 +61,7 @@ public class Menu_Activity extends AppCompatActivity {
     public void changeClockTime(View view) {
         Button bt = (Button)view;
         Calendar oldCalendar = clockController.getClockTime();
-        // Must create new calendar so that old calendar since the objects are passed by reference. A deep copy must be done.
+        // Must create deep copy of the calendar since the objects are passed by reference. We want to be able to go back to a previous date and time.
         Calendar newCalendar = new GregorianCalendar();
         switch(bt.getId()) {
             case R.id.bt_changeTime:
@@ -97,6 +98,7 @@ public class Menu_Activity extends AppCompatActivity {
                 break;
         }
 
+        // if the input is parsed correctly, then set the new calendar
         if(newCalendar != null) {
             Command command = new SetClockTime(clockController, oldCalendar, newCalendar);
             command.doIt();
@@ -107,10 +109,12 @@ public class Menu_Activity extends AppCompatActivity {
     public void addClock(View view){
         Button bt = (Button)view;
         Command command = null;
+        // if no clocks are on screen, then default time to device's time
         if(clockController.getNumberOfClocks() == 0) {
             clockController.setClockTime(Calendar.getInstance());
         }
 
+        // create thread only after the first clock has been created
         if(firstClock == true) {
             createClockThread();
             firstClock = !firstClock;
@@ -127,6 +131,7 @@ public class Menu_Activity extends AppCompatActivity {
                 break;
         }
 
+        // if command is correctly created, then execute it
         if(command != null) {
             command.doIt();
             CommandQueue.push(command);
@@ -142,22 +147,20 @@ public class Menu_Activity extends AppCompatActivity {
         CommandQueue.redo();
     }
 
-        /*
-        Note: creating a task as such will run in the background during other activities. This means that this task will run indefinitely unless stopped.
-        There is no need to start a new task when switching to a new activity. Tasks are simply started from an activity and are not decedent on the activity once instantiated.
-         */
+
     public void createClockThread() {
         // runnable declaration in order to allow the clock UI to be updated every second and tick the clock
         r = new Runnable() {
             @Override
             public void run() {
                 Calendar calendar = clockController.getClockTime();
+                // increment the clock model time by 1 second to simulate ticking of clock
                 calendar.add(Calendar.SECOND, 1);
-                SimpleDateFormat dateFormat = new SimpleDateFormat("E, MMM dd, yyyy hh:mm:ss a", Locale.US);
-                Log.d("TIME", dateFormat.format(calendar.getTime()));
+//                SimpleDateFormat dateFormat = new SimpleDateFormat("E, MMM dd, yyyy hh:mm:ss a", Locale.US);
+//                Log.d("TIME", dateFormat.format(calendar.getTime()));
                 clockController.setClockTime(calendar);
 
-                // create a handler for this runnable task
+                // create a handler for this runnable task so that another thread will be spawned every second to update the time
                 handler.postDelayed(r, 1000);
             }
         };

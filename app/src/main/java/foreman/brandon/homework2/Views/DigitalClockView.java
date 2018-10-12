@@ -27,11 +27,14 @@ public class DigitalClockView extends RelativeLayout implements ClockView {
     }
 
     public void init(Context context) {
+        // find root view
         View rootView = inflate(context, R.layout.digitalclock_view, this);
+        //  find other view elements
         time = (TextView)rootView.findViewById(R.id.timeText);
     }
 
     public void setTime(Calendar calendar) {
+        // format date
         SimpleDateFormat dateFormat = new SimpleDateFormat("E, MMM dd, yyyy hh:mm:ss a", Locale.US);
         time.setText(dateFormat.format(calendar.getTime()));
     }
